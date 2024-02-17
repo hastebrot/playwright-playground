@@ -17,16 +17,25 @@ export default defineConfig({
   projects: [
     {
       name: "safari",
-      use: { ...devices["Desktop Safari"] },
+      use: {
+        ...devices["Desktop Safari"],
+        deviceScaleFactor: 2,
+      },
     },
     {
       name: "chrome",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        deviceScaleFactor: 2,
+      },
       testIgnore: "**/*",
     },
     {
       name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
+      use: {
+        ...devices["Desktop Firefox"],
+        deviceScaleFactor: 2,
+      },
       testIgnore: "**/*",
     },
   ],
@@ -36,6 +45,7 @@ export default defineConfig({
     timeout: 5000, // 5 seconds timeout for each expect.
     toHaveScreenshot: {
       maxDiffPixels: 10,
+      scale: "device",
     },
     toMatchSnapshot: {
       maxDiffPixelRatio: 0.1,
